@@ -1,0 +1,2 @@
+"C:\Program Files\PostgresPro 1C\9.4\bin\createdb.exe" -h localhost -E UTF8 -U postgres test_base
+"C:\Program Files\PostgresPro 1C\9.4\bin\pg_restore.exe" --host localhost --port 5432 --username "postgres" --dbname "test_base" --role "postgres" --no-password  --verbose "D:\backup\sql_1cdoc\20160428-1cdoc.pgsql.backup
