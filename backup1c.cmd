@@ -2,15 +2,15 @@ SET PGDATABASE=1c
 SET PGHOST=localhost
 SET PGPORT=5432
 SET PGUSER=postgres
-SET PGPASSWORD=Qbitech3286011
+SET PGPASSWORD=_______________
 set PATH=%PATH%;"%ProgramFiles%\PostgresPro 1C\9.4\bin";%ProgramFiles%\7-Zip
 set DAT=%date:~6,4%%date:~3,2%%date:~0,2%
 set B="e:\Backup\sql_1cdoc"
 rem cd C:\backup
 "%ProgramW6432%\PostgresPro 1C\9.4\bin\pg_dump.exe" --host localhost --port 5432 --username "postgres" --role "postgres" --no-password  --format custom --blobs --compress 5 --encoding UTF8 --verbose --file e:\Backup\sql_1cdoc\%DAT%-1cdoc.pgsql.backup "et"
-rem Удаление бэкапов старше 7 дней.
+rem Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЎГЅГЄГ ГЇГ®Гў Г±ГІГ Г°ГёГҐ 7 Г¤Г­ГҐГ©.
 forfiles.exe -p %B%\ -s -m *.* -d -7 -c "cmd /c del /Q @FILE"
-echo Перед восстановлением базы обязательно создайте новую! Не только с помощью PostgreSQL, но и из консоли администрирования сервера 1с
+echo ГЏГҐГ°ГҐГ¤ ГўГ®Г±Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГҐГ¬ ГЎГ Г§Г» Г®ГЎГїГ§Г ГІГҐГ«ГјГ­Г® Г±Г®Г§Г¤Г Г©ГІГҐ Г­Г®ГўГіГѕ! ГЌГҐ ГІГ®Г«ГјГЄГ® Г± ГЇГ®Г¬Г®Г№ГјГѕ PostgreSQL, Г­Г® ГЁ ГЁГ§ ГЄГ®Г­Г±Г®Г«ГЁ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­ГЁГї Г±ГҐГ°ГўГҐГ°Г  1Г±
 echo "C:\Program Files\PostgresPro 1C\9.4\bin\psql.exe" -U postgres -c "drop database test_base"
 echo "C:\Program Files\PostgresPro 1C\9.4\bin\createdb.exe" -h localhost -E UTF8 -U postgres test_base
 echo "C:\Program Files\PostgresPro 1C\9.4\bin\pg_restore.exe" --host localhost --port 5432 --username "postgres" --dbname "test_base" --role "postgres" --no-password  --verbose "D:\backup\sql_1cdoc\20160428-1cdoc.pgsql.backup
